@@ -17,13 +17,26 @@
 	</head>
 
 	<body>
-		<h1 align = "center"> Welcome to your account! </h1>
+		<h1 align = "center"> Welcome to your account, {{name}}! </h1>
 
 		<!-- Centering the Boot Strap Butoon -->
 		<div class="row">
   			<div class="col-sm-12">
     				<div class="text-center"> 
-					<a class="btn btn-info" role="button" href="{{url_for('my_account')}}" align = "center">Update</a>
+
+
+					<br><br>
+
+					<form action="{{url_for('account')}}" class="form-inline" method=post>
+					  <div class="form-group">
+					    <label for="email">Your Text Data:</label>
+					    <input class="form-control" id="data" placeholder="{{data}}" name="data">
+					    <button type="submit" class="btn btn-info">UPDATE</button>
+					  </div>
+					 </form>
+
+					 <p class="text-success"> lase updated at {{time}} </p>
+					<a href="{{url_for('gdisconnect')}}" class="btn btn-danger">Logout</a>
 				</div>
 			</div>
 		</div>
