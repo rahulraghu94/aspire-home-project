@@ -137,7 +137,7 @@ def gconnect():
 		user_id = createUser(login_session)
 	login_session['user_id'] = user_id
 
-	app.logger.info("New User Connected: ID = ", user_id)
+	app.logger.info("New User Connected: ID = {}".format(user_id))
 
 	return "Done: 200"
 
@@ -164,7 +164,7 @@ def gdisconnect():
 		response = make_response(json.dumps('Successfully disconnected!'), 200)
 		response.headers['Content-tyoe'] = 'application/json'
 
-		app.logger.info("User Disconnected: ID = ", login_session['user_id'])
+		app.logger.info("User Disconnected: ID = {}".format(login_session['user_id']))
 
 		return redirect('/')
 
@@ -204,6 +204,8 @@ def account():
 
 		db.update('users', user[0])
 		db.query('end')
+
+		app.logger.info("Data updated by user with ID: {} at time: {}".format(user_id, t))
 
 		return redirect('/account')
 
