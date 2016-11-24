@@ -35,6 +35,7 @@ print (CLIENT_ID)
 ###############################################################################
 def getUserId(email):
 	try:
+		db.query('end')
 		db.query('begin')
 		query = ("select * from users where email = '{}'").format(email)
 		user = db.query(query)
@@ -45,6 +46,7 @@ def getUserId(email):
 		return None
 
 def getUserInfo(user_id):
+	db.query('end')
 	db.query('begin')
 	user = ("select * from users where id = '{}'").format(user_id)
 	user = user.dictresult()
@@ -56,6 +58,7 @@ def createUser(login_session):
 	t = time.asctime()
 	new_user = {'name' : login_session['username'], 'email' : login_session['email'], 'picture' : login_session['picture'], 'time' : t}
 
+	db.query('end')
 	db.query('begin')
 	db.insert('users', new_user)
 	query = ("select * from users where email = '{}'").format(login_session['email'])
@@ -69,7 +72,7 @@ def createUser(login_session):
 @app.route('/gconnect', methods = ['POST'])
 def gconnect():
 	if request.args.get('state') != login_session['state']:
-		response = make_response(json.dumps('Invalid state parameter you mofofs'), 401)
+		response = make_response(json.dumps('Invalid state parameter'), 401)
 		response.headers['Content-tyoe'] = 'application/json'
 		return response
 
@@ -183,6 +186,7 @@ def account():
 	if 'username' not in login_session:
 		return redirect('/login')
 
+	db.query('end')
 	db.query('begin')
 	user_id = getUserId(login_session['email'])
 
