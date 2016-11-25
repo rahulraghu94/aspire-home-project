@@ -249,6 +249,8 @@ def account():
 		db.update('users', user[0])
 		db.query('end')
 
+		flash("Flash Message: Data updated successfully!")
+
 		app.logger.info("Data updated by user with ID: {} at time: {}".format(user_id, t))
 
 		return redirect('/account')
