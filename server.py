@@ -267,7 +267,7 @@ if __name__ == '__main__':
 
 	# Code to enable logging.
 	# Helpful when we need to track user actions
-	handler = RotatingFileHandler('wine-catalog.log', maxBytes=10000, backupCount=1)
+	handler = RotatingFileHandler('home-project.log', maxBytes=10000, backupCount=1)
 	handler.setLevel(logging.INFO)
 	formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 	handler.setFormatter(formatter)
