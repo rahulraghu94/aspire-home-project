@@ -32,7 +32,7 @@
 
 					<form action="{{url_for('account')}}" class="form-inline" method=post>
 					  <div class="form-group">
-					    <label for="email">Your Text Data:</label>
+					    <label for="email">New Text Data:</label>
 					    <input class="form-control" id="data" placeholder="{{data}}" name="data">
 					    <button type="submit" class="btn btn-info">UPDATE</button>
 					  </div>
@@ -45,7 +45,7 @@
 			      				{% endfor %}
 			   			{% endif %}
 					{% endwith %}
-					 <p class="text-success"> lase updated at {{time}} </p>
+					 <p class="text-success"> last updated at: {{time}} </p>
 					<a href="{{url_for('gdisconnect')}}" class="btn btn-danger">Logout</a>
 				</div>
 			</div>
