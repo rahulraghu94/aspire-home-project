@@ -7,20 +7,18 @@ from oauth2client.client import flow_from_clientsecrets, FlowExchangeError, Acce
 import httplib2
 import json
 import requests
-from redis import Redis
 from functools import update_wrapper
 import time
 import pg
 import logging
 from logging.handlers import RotatingFileHandler
-from urllib.parse import urlparse
-import time
+import urlparse
 
 db = pg.DB(dbname = "home-project-database", user = "rahul")
-#url = "postgres://yxdfmijogkeoqu:nJHb0aelUdgoS4vAQAdR35qIRg@ec2-23-21-164-237.compute-1.amazonaws.com:5432/d3rcfql3m4pa15"
+url = "postgres://tmgaiavknsbiqy:e1NU-gRRZmXfhaIJBDDh44i5jj@ec2-50-17-206-164.compute-1.amazonaws.com:5432/d66fdt9p0ffb0u"
 
-#url = urlparse(url)
-#db = pg.DB(dbname = "d3rcfql3m4pa15", host = url.hostname, port = url.port, user = url.username, passwd = url.password)
+url = urlparse.urlparse(url)
+db = pg.DB(dbname = url.path[1:], host = url.hostname, port = url.port, user = url.username, passwd = url.password)
 
 app = Flask(__name__)
 
@@ -28,8 +26,6 @@ app.secret_key = "super_secret_key"
 
 # Variable to hold Google OAuth ID
 CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
-
-print (CLIENT_ID)
 
 ###############################################################################
 # Login
