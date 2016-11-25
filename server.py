@@ -14,8 +14,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import urlparse
 
-db = pg.DB(dbname = "home-project-database", user = "rahul")
-url = "postgres://tmgaiavknsbiqy:e1NU-gRRZmXfhaIJBDDh44i5jj@ec2-50-17-206-164.compute-1.amazonaws.com:5432/d66fdt9p0ffb0u"
+url = "postgres://xfckxhvrnurzab:grWHL5-NDkLx60q3ha1sW-gvHt@ec2-174-129-3-207.compute-1.amazonaws.com:5432/dfjp7s1fia74dc"
 
 url = urlparse.urlparse(url)
 db = pg.DB(dbname = url.path[1:], host = url.hostname, port = url.port, user = url.username, passwd = url.password)
