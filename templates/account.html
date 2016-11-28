@@ -19,24 +19,27 @@
 	<body>
 		<h1 align = "center"> Welcome to your account, {{name}}! </h1>
 
-		<h3 align="center"> Your account text data: {{data}} </h3>
-
-
 		<!-- Centering the Boot Strap Butoon -->
 		<div class="row">
   			<div class="col-sm-12">
     				<div class="text-center"> 
 
 
-					<br><br>
+					<br>
 
-					<form action="{{url_for('account')}}" class="form-inline" method=post>
+					<form action="{{url_for('account')}}" class="form-inline" method=post id="useform">
 					  <div class="form-group">
-					    <label for="email">New Text Data:</label>
-					    <input class="form-control" id="data" placeholder="{{data}}" name="data">
+					    <label for="email">Edit Data:</label>
+					    <br>
+					    <!--input class="form-control" id="data" value="{{data}}" name="data"-->
+					    <textarea id="data" name="data" cols="80" rows="7">{{data}}</textarea>
+					    <br>
 					    <button type="submit" class="btn btn-info">UPDATE</button>
 					  </div>
 					 </form>
+
+					<h3 align="center"> Your Account Information</h3>
+					<h4> {{data}} </h4>
 
 					{% with messages = get_flashed_messages() %}
 			   			{% if messages %}
