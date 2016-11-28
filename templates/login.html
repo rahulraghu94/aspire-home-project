@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <head>
-  <title>Home - Aspire</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script-->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-</head>
+      <title>Home - Aspire</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script-->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
 
 
   <body>
 
-  <div id = "result"> </div>
+      <div id = "result"> </div>
 
-  <script>
-    function signInCallback(authResut)
-    {
-      if(authResut['code']){
+      <script>
+        function signInCallback(authResut)
+        {
+          if(authResut['code']){
         //hide sign in button
 
         $('#signinButton').attr('style', 'display:none');
@@ -39,45 +39,45 @@
               $('#result').html('Login Successful!</br>'+result+"</br>Redirecting...")
               setTimeout(function()
                 {window.location.href = "/account";}, 4);
-            } else if(authResut['error']){
+          } else if(authResut['error']){
               console.log("There was an error..." + authResut['error']);
-            } else {
+          } else {
               $('#result').html('Failed to make call to server. Check console, network connection and configuration!');
-            }
-
-
-          },
-          error: function(req, err)
-          {
-            console.log('my message: ' + req);
           }
-        });
-      }
+
+
+      },
+      error: function(req, err)
+      {
+        console.log('my message: ' + req);
     }
+});
+    }
+}
 
-  </script>
+</script>
 
-  <div class="container">
+<div class="container">
   <div class="jumbotron">
     <h1>Home Project - Aspi.re</h1>
     <p>A simple project made using Twitter Bootstrap for front-end, Python with Flask for back-end, PyGreSQL as PostgreSQL database interface, Google OAuth2 for Login and deployed on Heroku Cloud.</p>
 
     <div id = "signinButton">
-                <span class = "g-signin"
-                  data-scope = "openid"
-                  data-clientid = "609153668548-l3iecb1qtp4n8h9rt4minlv7uu1s29a1.apps.googleusercontent.com"
-                  data-redirecturi = "postmessage"
-                  data-accestype = "offline"
-                  data-cookiepolicy = "single_host_origin"
-                  data-callback = "signInCallback"
-                  data-approvalprompt = "force">
-                </span>
-    </div>
-  </div>
-  <p align=center> Rahul Raghunath </p>
-  <p align=center> rahulraghu@gmail.com | +91 8123488186</p>
-  <p align=center> <a href="https://in.linkedin.com/in/rahulraghu94"> Linkedin </a> | <a href="https://github.com/rahulraghu94"> Github</a></p>
-  </div>
+        <span class = "g-signin"
+        data-scope = "openid"
+        data-clientid = "609153668548-l3iecb1qtp4n8h9rt4minlv7uu1s29a1.apps.googleusercontent.com"
+        data-redirecturi = "postmessage"
+        data-accestype = "offline"
+        data-cookiepolicy = "single_host_origin"
+        data-callback = "signInCallback"
+        data-approvalprompt = "force">
+    </span>
+</div>
+</div>
+<p align=center> Rahul Raghunath </p>
+<p align=center> rahulraghu@gmail.com | +91 8123488186</p>
+<p align=center> <a href="https://in.linkedin.com/in/rahulraghu94"> Linkedin </a> | <a href="https://github.com/rahulraghu94"> Github</a></p>
+</div>
 
 
     <!-- Bootstrap core JavaScript
@@ -89,5 +89,5 @@
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../static/cover/assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
 </html>
