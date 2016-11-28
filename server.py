@@ -14,7 +14,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import urlparse
 
-url = "postgres://xfckxhvrnurzab:grWHL5-NDkLx60q3ha1sW-gvHt@ec2-174-129-3-207.compute-1.amazonaws.com:5432/dfjp7s1fia74dc"
+url = "postgres://xvnjvdhwrsvlan:eGr8AHTCTfk7NSXVp8WBegtEPK@ec2-107-22-251-151.compute-1.amazonaws.com:5432/dfgobb6m9n4ohk"
 
 url = urlparse.urlparse(url)
 db = pg.DB(dbname = url.path[1:], host = url.hostname, port = url.port, user = url.username, passwd = url.password)
@@ -220,6 +220,7 @@ def login():
 	login_session['state'] = state
 	return render_template('login.html', STATE=state)
 
+
 ###############################################################################
 # Users account page.
 # Redirected from the login function
@@ -276,4 +277,4 @@ if __name__ == '__main__':
 	app.logger.addHandler(handler)
 	
 	# Starting the app on port 5000
-	#app.run(host = '0.0.0.0', port = 5000)
+	app.run(host = '0.0.0.0', port = 5000)
